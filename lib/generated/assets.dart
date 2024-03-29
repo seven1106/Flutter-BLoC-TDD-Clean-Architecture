@@ -7,5 +7,7 @@ class Assets {
   static const String pagesSignUpPage = 'lib/features/auth/presentation/pages/sign_up_page.dart';
   static const String themeAppPalette = 'lib/core/theme/app_palette.dart';
   static const String themeTheme = 'lib/core/theme/theme.dart';
+  static const String widgetsAuthField = 'lib/features/auth/presentation/widgets/auth_field.dart';
+  static const String widgetsAuthGradientBtn = 'lib/features/auth/presentation/widgets/auth_gradient_btn.dart';
 
 }
