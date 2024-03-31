@@ -1,4 +1,4 @@
-package com.example.flutter_supabase_forums
+package com.example.flutter_tdd_clean_architecture
 
 import io.flutter.embedding.android.FlutterActivity
 

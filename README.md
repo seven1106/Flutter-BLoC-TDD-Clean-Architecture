@@ -1,4 +1,4 @@
-# flutter_supabase_forums
+# flutter_tdd_clean_architecture
 
 A new Flutter project.
 

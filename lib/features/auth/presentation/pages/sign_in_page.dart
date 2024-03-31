@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_supabase_forums/features/auth/presentation/pages/sign_up_page.dart';
+import 'package:flutter_tdd_clean_architecture/features/auth/presentation/pages/sign_up_page.dart';
 
 import '../../../../core/theme/app_palette.dart';
 import '../widgets/auth_field.dart';
@@ -7,8 +7,8 @@ import '../widgets/auth_gradient_btn.dart';
 
 class SignInPage extends StatefulWidget {
   static route() => MaterialPageRoute(
-    builder: (context) => const SignInPage(),
-  );
+        builder: (context) => const SignInPage(),
+      );
   const SignInPage({Key? key}) : super(key: key);
 
   @override
