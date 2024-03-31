@@ -3,11 +3,14 @@ class Assets {
   Assets._();
 
   static const String coreErrorFailures = 'lib/core/error/failures.dart';
+  static const String datasourcesAuthRemoteDataSource = 'lib/features/auth/data/datasources/auth_remote_data_source.dart';
+  static const String errorExceptions = 'lib/core/error/exceptions.dart';
   static const String errorFailures = 'lib/core/error/failures.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String libMain = 'lib/main.dart';
   static const String pagesSignInPage = 'lib/features/auth/presentation/pages/sign_in_page.dart';
   static const String pagesSignUpPage = 'lib/features/auth/presentation/pages/sign_up_page.dart';
+  static const String repositoriesAuthRepositoryIml = 'lib/features/auth/data/repositories/auth_repository_iml.dart';
   static const String repositoriyAuthRepository = 'lib/features/auth/domain/repositoriy/auth_repository.dart';
   static const String secretsAppSecrets = 'lib/core/secrets/app_secrets.dart';
   static const String themeAppPalette = 'lib/core/theme/app_palette.dart';
