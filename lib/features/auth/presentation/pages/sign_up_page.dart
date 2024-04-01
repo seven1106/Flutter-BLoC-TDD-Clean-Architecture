@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tdd_clean_architecture/features/auth/presentation/pages/sign_in_page.dart';
 import 'package:flutter_tdd_clean_architecture/features/auth/presentation/widgets/auth_field.dart';
 
 import '../../../../core/theme/app_palette.dart';
+import '../bloc/auth_bloc.dart';
 import '../widgets/auth_gradient_btn.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -67,13 +69,13 @@ class _SignUpPageState extends State<SignUpPage> {
           buttonText: 'Sign Up',
           onPressed: () {
             if (formKey.currentState!.validate()) {
-              // context.read<AuthBloc>().add(
-              //   AuthSignUp(
-              //     email: emailController.text.trim(),
-              //     password: passwordController.text.trim(),
-              //     name: nameController.text.trim(),
-              //   ),
-              // );
+              context.read<AuthBloc>().add(
+                AuthSignUpWithEmailAndPassword(
+                  email: emailController.text.trim(),
+                  password: passwordController.text.trim(),
+                  name: nameController.text.trim(),
+                ),
+              );
             }
           },
         ),
