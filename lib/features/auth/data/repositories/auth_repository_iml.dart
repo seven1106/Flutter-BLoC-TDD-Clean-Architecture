@@ -3,7 +3,7 @@ import 'package:flutter_tdd_clean_architecture/core/error/failures.dart';
 
 import 'package:fpdart/src/either.dart';
 
-import '../../domain/repositoriy/auth_repository.dart';
+import '../../domain/repositories/auth_repository.dart';
 import '../datasources/auth_remote_data_source.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -43,7 +43,7 @@ class AuthRepositoryImpl implements AuthRepository {
       );
       return Right(response);
     } on ServerException catch (e){
-      return Left(Failures('An error occurred'));
+      return Left(Failures(e.message));
     }
   }
 }
