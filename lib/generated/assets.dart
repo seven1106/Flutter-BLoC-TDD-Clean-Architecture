@@ -10,6 +10,7 @@ class Assets {
   static const String errorExceptions = 'lib/core/error/exceptions.dart';
   static const String errorFailures = 'lib/core/error/failures.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
+  static const String libInitDependencies = 'lib/init_dependencies.dart';
   static const String libMain = 'lib/main.dart';
   static const String pagesSignInPage = 'lib/features/auth/presentation/pages/sign_in_page.dart';
   static const String pagesSignUpPage = 'lib/features/auth/presentation/pages/sign_up_page.dart';
