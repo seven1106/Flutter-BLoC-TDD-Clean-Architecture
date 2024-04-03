@@ -38,7 +38,7 @@ class _SignInPageState extends State<SignInPage> {
           style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
         ),
         Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(20),
           child: Form(
             key: formKey,
             child: Column(
@@ -58,19 +58,22 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ),
         const SizedBox(height: 20),
-        AuthGradientBtn(
-          buttonText: 'Sign In',
-          onPressed: () {
-            if (formKey.currentState!.validate()) {
-              // context.read<AuthBloc>().add(
-              //   AuthSignUp(
-              //     email: emailController.text.trim(),
-              //     password: passwordController.text.trim(),
-              //     name: nameController.text.trim(),
-              //   ),
-              // );
-            }
-          },
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: AuthGradientBtn(
+            buttonText: 'Sign In',
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                // context.read<AuthBloc>().add(
+                //   AuthSignUp(
+                //     email: emailController.text.trim(),
+                //     password: passwordController.text.trim(),
+                //     name: nameController.text.trim(),
+                //   ),
+                // );
+              }
+            },
+          ),
         ),
         const SizedBox(height: 20),
         GestureDetector(

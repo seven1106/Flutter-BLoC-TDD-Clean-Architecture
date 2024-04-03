@@ -7,11 +7,13 @@ class Assets {
   static const String blocAuthState = 'lib/features/auth/presentation/bloc/auth_state.dart';
   static const String coreErrorFailures = 'lib/core/error/failures.dart';
   static const String datasourcesAuthRemoteDataSource = 'lib/features/auth/data/datasources/auth_remote_data_source.dart';
+  static const String entitiesUserEntity = 'lib/features/auth/domain/entities/user_entity.dart';
   static const String errorExceptions = 'lib/core/error/exceptions.dart';
   static const String errorFailures = 'lib/core/error/failures.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String libInitDependencies = 'lib/init_dependencies.dart';
   static const String libMain = 'lib/main.dart';
+  static const String modelsUserModel = 'lib/features/auth/data/models/user_model.dart';
   static const String pagesSignInPage = 'lib/features/auth/presentation/pages/sign_in_page.dart';
   static const String pagesSignUpPage = 'lib/features/auth/presentation/pages/sign_up_page.dart';
   static const String repositoriesAuthRepository = 'lib/features/auth/domain/repositories/auth_repository.dart';

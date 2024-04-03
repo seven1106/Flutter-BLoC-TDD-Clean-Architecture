@@ -16,7 +16,7 @@ Future<void> initDependencies() async {
     anonKey: AppSecrets.supabaseAnonKey,
     debug: true,
   );
-  serviceLocator.registerLazySingleton(() => supaBase);
+  serviceLocator.registerLazySingleton(() => supaBase.client);
 }
 
 void _initAuthDependencies() {

@@ -1,8 +1,7 @@
 import 'package:flutter_tdd_clean_architecture/core/error/exceptions.dart';
 import 'package:flutter_tdd_clean_architecture/core/error/failures.dart';
-
+import 'package:flutter_tdd_clean_architecture/features/auth/domain/entities/user_entity.dart';
 import 'package:fpdart/src/either.dart';
-
 import '../../domain/repositories/auth_repository.dart';
 import '../datasources/auth_remote_data_source.dart';
 
@@ -14,7 +13,7 @@ class AuthRepositoryImpl implements AuthRepository {
   });
 
   @override
-  Future<Either<Failures, String>> signInWithEmailAndPassword({
+  Future<Either<Failures, UserEntity>> signInWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
@@ -30,7 +29,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failures, String>> signUpWithEmailAndPassword({
+  Future<Either<Failures, UserEntity>> signUpWithEmailAndPassword({
     required String email,
     required String password,
     required String name,

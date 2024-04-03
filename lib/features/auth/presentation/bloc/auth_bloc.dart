@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_tdd_clean_architecture/features/auth/data/models/user_model.dart';
+import 'package:flutter_tdd_clean_architecture/features/auth/domain/entities/user_entity.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../domain/usecase/user_sign_up.dart';
 
@@ -21,7 +24,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       ));
       result.fold(
         (failure) => emit(AuthFailure(failure.message)),
-        (userId) => emit(AuthSuccess(userId)),
+        (user) => emit(AuthSuccess(user)),
       );
     });
   }

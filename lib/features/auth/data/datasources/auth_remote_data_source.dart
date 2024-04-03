@@ -1,13 +1,14 @@
 import 'package:flutter_tdd_clean_architecture/core/error/exceptions.dart';
+import 'package:flutter_tdd_clean_architecture/features/auth/data/models/user_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract interface class AuthRemoteDataSource {
-  Future<String> signUpWithEmailAndPassword({
+  Future<UserModel> signUpWithEmailAndPassword({
     required String email,
     required String password,
     required String name,
   });
-  Future<String> signInWithEmailAndPassword({
+  Future<UserModel> signInWithEmailAndPassword({
     required String email,
     required String password,
   });
@@ -16,7 +17,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final SupabaseClient supabaseClient;
   AuthRemoteDataSourceImpl({required this.supabaseClient});
   @override
-  Future<String> signUpWithEmailAndPassword({
+  Future<UserModel> signUpWithEmailAndPassword({
     required String email,
     required String password,
     required String name,
@@ -26,14 +27,14 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       if (response.user == null) {
         throw const ServerException('An error occurred');
       }
-      return response.user!.id;
+      return UserModel.fromJson(response.user!.toJson());
     } catch (e) {
       throw const ServerException('An error occurred');
     }
   }
 
   @override
-  Future<String> signInWithEmailAndPassword({required String email, required String password}) {
+  Future<UserModel> signInWithEmailAndPassword({required String email, required String password}) {
     // TODO: implement signInWithEmailAndPassword
     throw UnimplementedError();
   }
