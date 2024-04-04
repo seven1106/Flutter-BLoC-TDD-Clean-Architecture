@@ -23,7 +23,9 @@ class Assets {
   static const String themeTheme = 'lib/core/theme/theme.dart';
   static const String usecaseUsecase = 'lib/core/usecase/usecase.dart';
   static const String usecaseUserSignUp = 'lib/features/auth/domain/usecase/user_sign_up.dart';
+  static const String utilsShowSnackbar = 'lib/core/utils/show_snackbar.dart';
   static const String widgetsAuthField = 'lib/features/auth/presentation/widgets/auth_field.dart';
   static const String widgetsAuthGradientBtn = 'lib/features/auth/presentation/widgets/auth_gradient_btn.dart';
+  static const String widgetsLoader = 'lib/core/common/widgets/loader.dart';
 
 }
