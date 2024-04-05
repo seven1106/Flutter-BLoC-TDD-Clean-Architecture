@@ -13,3 +13,12 @@ final class AuthSignUpWithEmailAndPassword extends AuthEvent {
     required this.name,
   });
 }
+final class AuthSignInWithEmailAndPassword extends AuthEvent {
+  final String email;
+  final String password;
+
+  AuthSignInWithEmailAndPassword({
+    required this.email,
+    required this.password,
+  });
+}

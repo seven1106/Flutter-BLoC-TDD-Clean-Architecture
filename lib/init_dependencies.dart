@@ -5,6 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/secrets/app_secrets.dart';
 import 'features/auth/data/datasources/auth_remote_data_source.dart';
 import 'features/auth/data/repositories/auth_repository_iml.dart';
+import 'features/auth/domain/usecase/user_sign_in.dart';
 import 'features/auth/domain/usecase/user_sign_up.dart';
 
 final serviceLocator = GetIt.instance;
@@ -35,9 +36,15 @@ void _initAuthDependencies() {
       serviceLocator(),
     ),
   );
+  serviceLocator.registerFactory(
+    () => UserSignIn(
+      serviceLocator(),
+    ),
+  );
   serviceLocator.registerLazySingleton(
     () => AuthBloc(
       userSignUp: serviceLocator(),
+      userSignIn: serviceLocator(),
     ),
   );
 }

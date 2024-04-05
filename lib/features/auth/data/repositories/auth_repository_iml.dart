@@ -1,7 +1,8 @@
 import 'package:flutter_tdd_clean_architecture/core/error/exceptions.dart';
 import 'package:flutter_tdd_clean_architecture/core/error/failures.dart';
 import 'package:flutter_tdd_clean_architecture/features/auth/domain/entities/user_entity.dart';
-import 'package:fpdart/src/either.dart';
+import 'package:fpdart/fpdart.dart';
+import 'package:supabase_flutter/supabase_flutter.dart' as supabase;
 import '../../domain/repositories/auth_repository.dart';
 import '../datasources/auth_remote_data_source.dart';
 
@@ -17,15 +18,11 @@ class AuthRepositoryImpl implements AuthRepository {
     required String email,
     required String password,
   }) async {
-    try {
       final response = await remoteDataSource.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      return Right(response);
-    } on Exception {
-      return Left(Failures('An error occurred'));
-    }
+      return _getUser(() async => response);
   }
 
   @override
@@ -34,15 +31,25 @@ class AuthRepositoryImpl implements AuthRepository {
     required String password,
     required String name,
   }) async{
-    try {
       final response = await remoteDataSource.signUpWithEmailAndPassword(
         email: email,
         password: password,
         name: name,
       );
+      return _getUser(() async => response);
+
+  }
+  Future<Either<Failures, UserEntity>> _getUser(
+      Future<UserEntity> Function() fn,
+      ) async {
+    try {
+      final response = await fn();
       return Right(response);
-    } on ServerException catch (e){
+    } on ServerException catch (e) {
+      return Left(Failures(e.message));
+    } on supabase.AuthException catch (e) {
       return Left(Failures(e.message));
     }
   }
 }
+

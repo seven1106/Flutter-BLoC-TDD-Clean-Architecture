@@ -13,6 +13,7 @@ abstract interface class AuthRemoteDataSource {
     required String password,
   });
 }
+
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final SupabaseClient supabaseClient;
   AuthRemoteDataSourceImpl({required this.supabaseClient});
@@ -23,7 +24,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     required String name,
   }) async {
     try {
-      final response = await supabaseClient.auth.signUp(email:email,  password: password, data: {'name': name});
+      final response = await supabaseClient.auth
+          .signUp(email: email, password: password, data: {'name': name});
       if (response.user == null) {
         throw const ServerException('An error occurred');
       }
@@ -34,9 +36,22 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<UserModel> signInWithEmailAndPassword({required String email, required String password}) {
-    // TODO: implement signInWithEmailAndPassword
+  Future<UserModel> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final response = await supabaseClient.auth.signInWithPassword(
+        email: email,
+        password: password,
+      );
+      if (response.user == null) {
+        throw const ServerException('An error occurred');
+      }
+      return UserModel.fromJson(response.user!.toJson());
+    } catch (e) {
+      throw const ServerException('An error occurred');
+    }
     throw UnimplementedError();
   }
-
 }
