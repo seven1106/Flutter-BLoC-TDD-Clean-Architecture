@@ -4,9 +4,9 @@ import 'package:flutter_tdd_clean_architecture/features/auth/domain/entities/use
 import 'package:fpdart/fpdart.dart';
 
 import '../repositories/auth_repository.dart';
-class UserSignIn implements UseCase<UserEntity, UserSignInParams> {
+class UserSignInUseCase implements UseCase<UserEntity, UserSignInParams> {
   final AuthRepository repository;
-  const UserSignIn(this.repository);
+  const UserSignInUseCase(this.repository);
   @override
   Future<Either<Failures, UserEntity>> call(UserSignInParams params) async{
     return await repository.signInWithEmailAndPassword(

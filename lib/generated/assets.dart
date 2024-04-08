@@ -21,6 +21,7 @@ class Assets {
   static const String secretsAppSecrets = 'lib/core/secrets/app_secrets.dart';
   static const String themeAppPalette = 'lib/core/theme/app_palette.dart';
   static const String themeTheme = 'lib/core/theme/theme.dart';
+  static const String usecaseCurrentUser = 'lib/features/auth/domain/usecase/current_user.dart';
   static const String usecaseUsecase = 'lib/core/usecase/usecase.dart';
   static const String usecaseUserSignIn = 'lib/features/auth/domain/usecase/user_sign_in.dart';
   static const String usecaseUserSignUp = 'lib/features/auth/domain/usecase/user_sign_up.dart';

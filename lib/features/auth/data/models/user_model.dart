@@ -15,4 +15,17 @@ class UserModel extends UserEntity {
       photoUrl: json['photoUrl'] ?? '',
     );
   }
+  UserModel copyWith({
+    String? id,
+    String? email,
+    String? name,
+    String? photoUrl,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      email: email ?? this.email,
+      name: name ?? this.name,
+      photoUrl: photoUrl ?? this.photoUrl,
+    );
+  }
 }
