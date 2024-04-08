@@ -2,12 +2,14 @@
 class Assets {
   Assets._();
 
+  static const String appUserAppUserCubit = 'lib/core/common/cubits/app_user/app_user_cubit.dart';
+  static const String appUserAppUserState = 'lib/core/common/cubits/app_user/app_user_state.dart';
   static const String blocAuthBloc = 'lib/features/auth/presentation/bloc/auth_bloc.dart';
   static const String blocAuthEvent = 'lib/features/auth/presentation/bloc/auth_event.dart';
   static const String blocAuthState = 'lib/features/auth/presentation/bloc/auth_state.dart';
   static const String coreErrorFailures = 'lib/core/error/failures.dart';
   static const String datasourcesAuthRemoteDataSource = 'lib/features/auth/data/datasources/auth_remote_data_source.dart';
-  static const String entitiesUserEntity = 'lib/features/auth/domain/entities/user_entity.dart';
+  static const String entitiesUserEntity = 'lib/core/common/entities/user_entity.dart';
   static const String errorExceptions = 'lib/core/error/exceptions.dart';
   static const String errorFailures = 'lib/core/error/failures.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';

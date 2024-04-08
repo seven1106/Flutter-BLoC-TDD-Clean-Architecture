@@ -1,6 +1,6 @@
 import 'package:flutter_tdd_clean_architecture/core/error/exceptions.dart';
 import 'package:flutter_tdd_clean_architecture/core/error/failures.dart';
-import 'package:flutter_tdd_clean_architecture/features/auth/domain/entities/user_entity.dart';
+import 'package:flutter_tdd_clean_architecture/core/common/entities/user_entity.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' as supabase;
 import '../../domain/repositories/auth_repository.dart';

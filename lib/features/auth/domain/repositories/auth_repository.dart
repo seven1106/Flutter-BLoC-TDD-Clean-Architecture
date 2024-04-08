@@ -1,5 +1,5 @@
 import 'package:flutter_tdd_clean_architecture/core/error/failures.dart';
-import 'package:flutter_tdd_clean_architecture/features/auth/domain/entities/user_entity.dart';
+import 'package:flutter_tdd_clean_architecture/core/common/entities/user_entity.dart';
 import 'package:fpdart/fpdart.dart';
 
  abstract interface class AuthRepository {

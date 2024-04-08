@@ -1,7 +1,7 @@
 import 'package:fpdart/fpdart.dart';
 import '../../../../core/error/failures.dart';
 import '../../../../core/usecase/usecase.dart';
-import '../entities/user_entity.dart';
+import '../../../../core/common/entities/user_entity.dart';
 import '../repositories/auth_repository.dart';
 
 class CurrentUserUseCase implements UseCase<UserEntity, NoParams> {
