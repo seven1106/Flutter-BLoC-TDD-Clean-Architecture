@@ -9,6 +9,8 @@ class Assets {
   static const String blocAuthState = 'lib/features/auth/presentation/bloc/auth_state.dart';
   static const String coreErrorFailures = 'lib/core/error/failures.dart';
   static const String datasourcesAuthRemoteDataSource = 'lib/features/auth/data/datasources/auth_remote_data_source.dart';
+  static const String datasourcesBlogRemoteDataSource = 'lib/features/blog/data/datasources/blog_remote_data_source.dart';
+  static const String entitiesBlogEntity = 'lib/features/blog/domain/entities/blog_entity.dart';
   static const String entitiesUserEntity = 'lib/core/common/entities/user_entity.dart';
   static const String enumsBlogCategoryEnums = 'lib/core/enums/blog_category_enums.dart';
   static const String errorExceptions = 'lib/core/error/exceptions.dart';
@@ -16,6 +18,7 @@ class Assets {
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String libInitDependencies = 'lib/init_dependencies.dart';
   static const String libMain = 'lib/main.dart';
+  static const String modelsBlogModel = 'lib/features/blog/data/models/blog_model.dart';
   static const String modelsUserModel = 'lib/features/auth/data/models/user_model.dart';
   static const String pagesAddNewBlogPage = 'lib/features/blog/presentation/pages/add_new_blog_page.dart';
   static const String pagesBlogPage = 'lib/features/blog/presentation/pages/blog_page.dart';
