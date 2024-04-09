@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tdd_clean_architecture/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:flutter_tdd_clean_architecture/core/theme/theme.dart';
 import 'package:flutter_tdd_clean_architecture/features/auth/presentation/pages/sign_in_page.dart';
+import 'package:flutter_tdd_clean_architecture/features/auth/presentation/pages/sign_up_page.dart';
+import 'package:flutter_tdd_clean_architecture/features/blog/presentation/pages/blog_page.dart';
 import 'package:flutter_tdd_clean_architecture/init_dependencies.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 
@@ -47,9 +49,7 @@ class _MyAppState extends State<MyApp> {
           return state is AppUserLoggedIn;
         },
         builder: (context, state) {
-          return state
-              ? const Scaffold(body: Center(child: Text("Sign In")))
-              : const SignInPage();
+          return state ? const BlogPage() : const SignUpPage();
         },
       ),
     );

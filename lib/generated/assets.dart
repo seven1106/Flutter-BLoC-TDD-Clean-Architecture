@@ -10,12 +10,15 @@ class Assets {
   static const String coreErrorFailures = 'lib/core/error/failures.dart';
   static const String datasourcesAuthRemoteDataSource = 'lib/features/auth/data/datasources/auth_remote_data_source.dart';
   static const String entitiesUserEntity = 'lib/core/common/entities/user_entity.dart';
+  static const String enumsBlogCategoryEnums = 'lib/core/enums/blog_category_enums.dart';
   static const String errorExceptions = 'lib/core/error/exceptions.dart';
   static const String errorFailures = 'lib/core/error/failures.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String libInitDependencies = 'lib/init_dependencies.dart';
   static const String libMain = 'lib/main.dart';
   static const String modelsUserModel = 'lib/features/auth/data/models/user_model.dart';
+  static const String pagesAddNewBlogPage = 'lib/features/blog/presentation/pages/add_new_blog_page.dart';
+  static const String pagesBlogPage = 'lib/features/blog/presentation/pages/blog_page.dart';
   static const String pagesSignInPage = 'lib/features/auth/presentation/pages/sign_in_page.dart';
   static const String pagesSignUpPage = 'lib/features/auth/presentation/pages/sign_up_page.dart';
   static const String repositoriesAuthRepository = 'lib/features/auth/domain/repositories/auth_repository.dart';
@@ -30,6 +33,7 @@ class Assets {
   static const String utilsShowSnackbar = 'lib/core/utils/show_snackbar.dart';
   static const String widgetsAuthField = 'lib/features/auth/presentation/widgets/auth_field.dart';
   static const String widgetsAuthGradientBtn = 'lib/features/auth/presentation/widgets/auth_gradient_btn.dart';
+  static const String widgetsBlogEditer = 'lib/features/blog/presentation/widgets/blog_editor.dart';
   static const String widgetsLoader = 'lib/core/common/widgets/loader.dart';
 
 }
