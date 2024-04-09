@@ -6,6 +6,7 @@ import 'package:flutter_tdd_clean_architecture/core/theme/app_palette.dart';
 import 'package:flutter_tdd_clean_architecture/features/blog/presentation/widgets/blog_editor.dart';
 
 import '../../../../core/enums/blog_category_enums.dart';
+import '../../../../core/utils/pick_image.dart';
 
 class AddNewBlogPage extends StatefulWidget {
   static route() {
@@ -34,6 +35,16 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
   final formKey = GlobalKey<FormState>();
   List<String> selectedTopics = [];
   File? image;
+
+  void selectImage() async {
+    final pickedImage = await pickImage();
+    if (pickedImage != null) {
+      setState(() {
+        image = pickedImage;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,34 +62,26 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: DottedBorder(
-                borderType: BorderType.RRect,
-                radius: const Radius.circular(12),
-                color: AppPalette.borderColor,
-                dashPattern: const [10, 4],
-                strokeCap: StrokeCap.round,
-                child: Container(
-                  height: 150,
-                  width: double.infinity,
-                  child: const Padding(
-                    padding: EdgeInsets.all(32.0),
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.folder_open,
-                          size: 40,
-                          color: Colors.grey,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Add Image",
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                      ],
-                    ),
-                  ),
+              child: GestureDetector(
+                onTap: () {
+                  selectImage();
+                },
+                child: DottedBorder(
+                  borderType: BorderType.RRect,
+                  radius: const Radius.circular(12),
+                  color: AppPalette.borderColor,
+                  dashPattern: const [10, 4],
+                  strokeCap: StrokeCap.round,
+                  child: Container(
+                      height: 150,
+                      width: double.infinity,
+                      child: image == null
+                          ? const Center(
+                              child:
+                                  Icon(Icons.add_a_photo, color: Colors.grey, size: 40))
+                          : ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.file(image!, fit: BoxFit.cover))),
                 ),
               ),
             ),
