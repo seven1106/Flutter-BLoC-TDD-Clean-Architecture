@@ -9,7 +9,7 @@ class UserSignUpUseCase implements UseCase<UserEntity, UserSignUpParams> {
   final AuthRepository repository;
   const UserSignUpUseCase(this.repository);
   @override
-  Future<Either<Failures, UserEntity>> call(UserSignUpParams params) async{
+  Future<Either<Failure, UserEntity>> call(UserSignUpParams params) async{
     return await repository.signUpWithEmailAndPassword(
       email: params.email,
       password: params.password,

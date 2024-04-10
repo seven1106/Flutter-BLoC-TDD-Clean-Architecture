@@ -7,6 +7,9 @@ class Assets {
   static const String blocAuthBloc = 'lib/features/auth/presentation/bloc/auth_bloc.dart';
   static const String blocAuthEvent = 'lib/features/auth/presentation/bloc/auth_event.dart';
   static const String blocAuthState = 'lib/features/auth/presentation/bloc/auth_state.dart';
+  static const String blocBlogBloc = 'lib/features/blog/presentation/bloc/blog_bloc.dart';
+  static const String blocBlogEvent = 'lib/features/blog/presentation/bloc/blog_event.dart';
+  static const String blocBlogState = 'lib/features/blog/presentation/bloc/blog_state.dart';
   static const String coreErrorFailures = 'lib/core/error/failures.dart';
   static const String datasourcesAuthRemoteDataSource = 'lib/features/auth/data/datasources/auth_remote_data_source.dart';
   static const String datasourcesBlogRemoteDataSource = 'lib/features/blog/data/datasources/blog_remote_data_source.dart';
@@ -26,6 +29,8 @@ class Assets {
   static const String pagesSignUpPage = 'lib/features/auth/presentation/pages/sign_up_page.dart';
   static const String repositoriesAuthRepository = 'lib/features/auth/domain/repositories/auth_repository.dart';
   static const String repositoriesAuthRepositoryIml = 'lib/features/auth/data/repositories/auth_repository_iml.dart';
+  static const String repositoriesBlogRepository = 'lib/features/blog/domain/repositories/blog_repository.dart';
+  static const String repositoriesBlogRepositoryImpl = 'lib/features/blog/data/repositories/blog_repository_impl.dart';
   static const String secretsAppSecrets = 'lib/core/secrets/app_secrets.dart';
   static const String themeAppPalette = 'lib/core/theme/app_palette.dart';
   static const String themeTheme = 'lib/core/theme/theme.dart';
@@ -33,6 +38,7 @@ class Assets {
   static const String usecaseUsecase = 'lib/core/usecase/usecase.dart';
   static const String usecaseUserSignIn = 'lib/features/auth/domain/usecase/user_sign_in.dart';
   static const String usecaseUserSignUp = 'lib/features/auth/domain/usecase/user_sign_up.dart';
+  static const String usecasesUploadBlog = 'lib/features/blog/domain/usecases/upload_blog.dart';
   static const String utilsPickImage = 'lib/core/utils/pick_image.dart';
   static const String utilsShowSnackbar = 'lib/core/utils/show_snackbar.dart';
   static const String widgetsAuthField = 'lib/features/auth/presentation/widgets/auth_field.dart';

@@ -1,4 +1,4 @@
-class Failures {
+class Failure {
  final String message;
-  Failures([this.message = 'An error occurred']);
+  Failure([this.message = 'An error occurred']);
 }

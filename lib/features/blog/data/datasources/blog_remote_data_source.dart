@@ -39,12 +39,12 @@ class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
     required BlogModel blog,
   }) async {
     try {
-      await client.storage.from('blog_images').upload(
+      await client.storage.from('blog_image').upload(
             blog.id,
             image,
           );
 
-      return client.storage.from('blog_images').getPublicUrl(
+      return client.storage.from('blog_image').getPublicUrl(
             blog.id,
           );
     } on StorageException catch (e) {

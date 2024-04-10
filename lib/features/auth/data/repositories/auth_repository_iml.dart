@@ -14,7 +14,7 @@ class AuthRepositoryImpl implements AuthRepository {
   });
 
   @override
-  Future<Either<Failures, UserEntity>> signInWithEmailAndPassword({
+  Future<Either<Failure, UserEntity>> signInWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
@@ -26,7 +26,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failures, UserEntity>> signUpWithEmailAndPassword({
+  Future<Either<Failure, UserEntity>> signUpWithEmailAndPassword({
     required String email,
     required String password,
     required String name,
@@ -39,32 +39,32 @@ class AuthRepositoryImpl implements AuthRepository {
       return _getUser(() async => response);
 
   }
-  Future<Either<Failures, UserEntity>> _getUser(
+  Future<Either<Failure, UserEntity>> _getUser(
       Future<UserEntity> Function() fn,
       ) async {
     try {
       final response = await fn();
       return Right(response);
     } on ServerException catch (e) {
-      return Left(Failures(e.message));
+      return Left(Failure(e.message));
     } on supabase.AuthException catch (e) {
-      return Left(Failures(e.message));
+      return Left(Failure(e.message));
     }
   }
 
   @override
-  Future<Either<Failures, UserEntity>> getCurrentUser() async{
+  Future<Either<Failure, UserEntity>> getCurrentUser() async{
     try {
       final response = await remoteDataSource.getCurrentUser();
       if (response != null) {
         return Right(response);
       } else {
-        return Left(Failures('User not found'));
+        return Left(Failure('User not found'));
       }
     } on ServerException catch (e) {
-      return Left(Failures(e.message));
+      return Left(Failure(e.message));
     } on supabase.AuthException catch (e) {
-      return Left(Failures(e.message));
+      return Left(Failure(e.message));
     }
   }
 }

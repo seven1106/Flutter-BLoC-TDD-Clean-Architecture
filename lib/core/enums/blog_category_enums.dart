@@ -1,5 +1,6 @@
 enum BlogCategoryEnum {
   tech('Technology'),
+  j4f('Just for Fun'),
   business('Business'),
   guides('Guides'),
   reviews('Reviews'),
@@ -14,6 +15,8 @@ extension ConvertBlogCategory on String {
     switch (this) {
       case 'Technology':
         return BlogCategoryEnum.tech;
+      case 'Just for Fun':
+        return BlogCategoryEnum.j4f;
       case 'Business':
         return BlogCategoryEnum.business;
       case 'Guides':

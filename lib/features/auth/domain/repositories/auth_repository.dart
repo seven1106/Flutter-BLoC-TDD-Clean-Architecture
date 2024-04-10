@@ -3,14 +3,14 @@ import 'package:flutter_tdd_clean_architecture/core/common/entities/user_entity.
 import 'package:fpdart/fpdart.dart';
 
  abstract interface class AuthRepository {
-  Future<Either<Failures, UserEntity>> signUpWithEmailAndPassword({
+  Future<Either<Failure, UserEntity>> signUpWithEmailAndPassword({
     required String email,
     required String password,
     required String name,
   });
-  Future<Either<Failures, UserEntity>> signInWithEmailAndPassword({
+  Future<Either<Failure, UserEntity>> signInWithEmailAndPassword({
     required String email,
     required String password,
   });
-  Future<Either<Failures, UserEntity>> getCurrentUser();
+  Future<Either<Failure, UserEntity>> getCurrentUser();
 }

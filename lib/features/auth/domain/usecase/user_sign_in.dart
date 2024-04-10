@@ -8,7 +8,7 @@ class UserSignInUseCase implements UseCase<UserEntity, UserSignInParams> {
   final AuthRepository repository;
   const UserSignInUseCase(this.repository);
   @override
-  Future<Either<Failures, UserEntity>> call(UserSignInParams params) async{
+  Future<Either<Failure, UserEntity>> call(UserSignInParams params) async{
     return await repository.signInWithEmailAndPassword(
       email: params.email,
       password: params.password,

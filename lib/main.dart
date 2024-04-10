@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tdd_clean_architecture/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:flutter_tdd_clean_architecture/core/theme/theme.dart';
-import 'package:flutter_tdd_clean_architecture/features/auth/presentation/pages/sign_in_page.dart';
 import 'package:flutter_tdd_clean_architecture/features/auth/presentation/pages/sign_up_page.dart';
 import 'package:flutter_tdd_clean_architecture/features/blog/presentation/pages/blog_page.dart';
 import 'package:flutter_tdd_clean_architecture/init_dependencies.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
+import 'features/blog/presentation/bloc/blog_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +18,8 @@ void main() async {
       ),
       BlocProvider(
         create: (context) => serviceLocator<AppUserCubit>(),
+      ),
+      BlocProvider(create: (context) => serviceLocator<BlogBloc>(),
       ),
     ],
     child: const MyApp(),

@@ -38,4 +38,25 @@ class BlogModel extends BlogEntity {
           : DateTime.parse(map['updated_at']),
     );
   }
+  BlogModel copyWith({
+    String? id,
+    String? poster_id,
+    String? title,
+    String? content,
+    String? image_url,
+    int? views,
+    List<String>? categories,
+    DateTime? updated_at,
+  }) {
+    return BlogModel(
+      id: id ?? this.id,
+      poster_id: poster_id ?? this.poster_id,
+      title: title ?? this.title,
+      content: content ?? this.content,
+      image_url: image_url ?? this.image_url,
+      views: views ?? this.views,
+      categories: categories ?? this.categories,
+      updated_at: updated_at ?? this.updated_at,
+    );
+  }
 }
