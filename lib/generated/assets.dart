@@ -44,6 +44,7 @@ class Assets {
   static const String utilsShowSnackbar = 'lib/core/utils/show_snackbar.dart';
   static const String widgetsAuthField = 'lib/features/auth/presentation/widgets/auth_field.dart';
   static const String widgetsAuthGradientBtn = 'lib/features/auth/presentation/widgets/auth_gradient_btn.dart';
+  static const String widgetsBlogCard = 'lib/features/blog/presentation/widgets/blog_card.dart';
   static const String widgetsBlogEditor = 'lib/features/blog/presentation/widgets/blog_editor.dart';
   static const String widgetsLoader = 'lib/core/common/widgets/loader.dart';
 
