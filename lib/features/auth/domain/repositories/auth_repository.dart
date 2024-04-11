@@ -12,5 +12,5 @@ import 'package:fpdart/fpdart.dart';
     required String email,
     required String password,
   });
-  Future<Either<Failure, UserEntity>> getCurrentUser();
+  Future<Either<Failure, UserEntity>> currentUser();
 }

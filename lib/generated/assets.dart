@@ -23,6 +23,7 @@ class Assets {
   static const String libMain = 'lib/main.dart';
   static const String modelsBlogModel = 'lib/features/blog/data/models/blog_model.dart';
   static const String modelsUserModel = 'lib/features/auth/data/models/user_model.dart';
+  static const String networkConnectionChecker = 'lib/core/network/connection_checker.dart';
   static const String pagesAddNewBlogPage = 'lib/features/blog/presentation/pages/add_new_blog_page.dart';
   static const String pagesBlogPage = 'lib/features/blog/presentation/pages/blog_page.dart';
   static const String pagesBlogViewerPage = 'lib/features/blog/presentation/pages/blog_viewer_page.dart';

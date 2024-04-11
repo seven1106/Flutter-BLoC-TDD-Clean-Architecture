@@ -9,6 +9,6 @@ class CurrentUserUseCase implements UseCase<UserEntity, NoParams> {
   const CurrentUserUseCase(this.repository);
   @override
   Future<Either<Failure, UserEntity>> call(NoParams params) async{
-    return await repository.getCurrentUser();
+    return await repository.currentUser();
   }
 }

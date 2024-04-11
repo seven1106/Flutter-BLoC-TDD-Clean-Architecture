@@ -1,6 +1,8 @@
+import 'package:flutter_tdd_clean_architecture/core/network/connection_checker.dart';
 import 'package:flutter_tdd_clean_architecture/features/auth/domain/repositories/auth_repository.dart';
 import 'package:flutter_tdd_clean_architecture/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/common/cubits/app_user/app_user_cubit.dart';
 import 'core/secrets/app_secrets.dart';
@@ -26,7 +28,11 @@ Future<void> initDependencies() async {
     anonKey: AppSecrets.supabaseAnonKey,
     debug: true,
   );
+  serviceLocator.registerFactory(() => InternetConnection());
   serviceLocator.registerLazySingleton(() => supaBase.client);
+  // serviceLocator.registerLazySingleton(() => AppUserCubit());
+  serviceLocator
+      .registerFactory<ConnectionChecker>(() => ConnectionCheckerImpl(serviceLocator()));
 }
 
 void _initAuthDependencies() {
@@ -40,7 +46,8 @@ void _initAuthDependencies() {
     // Repository
     ..registerFactory<AuthRepository>(
       () => AuthRepositoryImpl(
-        remoteDataSource: serviceLocator(),
+        serviceLocator(),
+        serviceLocator(),
       ),
     )
     // UseCases
