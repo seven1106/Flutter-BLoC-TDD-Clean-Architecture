@@ -12,6 +12,7 @@ import 'features/auth/domain/usecase/user_sign_up.dart';
 import 'features/blog/data/datasources/blog_remote_data_source.dart';
 import 'features/blog/data/repositories/blog_repository_impl.dart';
 import 'features/blog/domain/repositories/blog_repository.dart';
+import 'features/blog/domain/usecases/get_all_blogs.dart';
 import 'features/blog/domain/usecases/upload_blog.dart';
 import 'features/blog/presentation/bloc/blog_bloc.dart';
 
@@ -60,8 +61,7 @@ void _initAuthDependencies() {
     )
     // Core
     ..registerLazySingleton(
-      () => AppUserCubit(
-      ),
+      () => AppUserCubit(),
     )
     // Bloc
     ..registerLazySingleton(
@@ -94,11 +94,17 @@ void _initBlogDependencies() {
         serviceLocator(),
       ),
     )
+    ..registerFactory(
+      () => GetAllBlogs(
+        serviceLocator(),
+      ),
+    )
+
     // Bloc
     ..registerLazySingleton(
       () => BlogBloc(
         uploadBlog: serviceLocator(),
-
+        getAllBlogs: serviceLocator(),
       ),
     );
 }

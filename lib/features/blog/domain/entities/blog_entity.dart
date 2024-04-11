@@ -7,6 +7,8 @@ class BlogEntity {
   final int views;
   final List<String> categories;
   final DateTime updated_at;
+  final String? poster_name;
+  final String? poster_avatar_url;
 
   BlogEntity({
     required this.id,
@@ -17,6 +19,8 @@ class BlogEntity {
     required this.views,
     required this.categories,
     required this.updated_at,
+    this.poster_name,
+    this.poster_avatar_url,
   });
 
 

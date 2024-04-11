@@ -38,6 +38,7 @@ class Assets {
   static const String usecaseUsecase = 'lib/core/usecase/usecase.dart';
   static const String usecaseUserSignIn = 'lib/features/auth/domain/usecase/user_sign_in.dart';
   static const String usecaseUserSignUp = 'lib/features/auth/domain/usecase/user_sign_up.dart';
+  static const String usecasesGetAllBlogs = 'lib/features/blog/domain/usecases/get_all_blogs.dart';
   static const String usecasesUploadBlog = 'lib/features/blog/domain/usecases/upload_blog.dart';
   static const String utilsPickImage = 'lib/core/utils/pick_image.dart';
   static const String utilsShowSnackbar = 'lib/core/utils/show_snackbar.dart';

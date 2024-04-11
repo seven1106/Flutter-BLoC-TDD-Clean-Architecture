@@ -10,6 +10,8 @@ class BlogModel extends BlogEntity {
     required super.views,
     required super.categories,
     required super.updated_at,
+    super.poster_name,
+    super.poster_avatar_url,
   });
   Map<String, dynamic> toJson() {
     return {
@@ -47,6 +49,8 @@ class BlogModel extends BlogEntity {
     int? views,
     List<String>? categories,
     DateTime? updated_at,
+    String? poster_name,
+    String? poster_avatar_url,
   }) {
     return BlogModel(
       id: id ?? this.id,
@@ -57,6 +61,8 @@ class BlogModel extends BlogEntity {
       views: views ?? this.views,
       categories: categories ?? this.categories,
       updated_at: updated_at ?? this.updated_at,
+      poster_name: poster_name ?? this.poster_name,
+      poster_avatar_url: poster_avatar_url ?? this.poster_avatar_url,
     );
   }
 }
