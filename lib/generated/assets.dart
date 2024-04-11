@@ -25,6 +25,7 @@ class Assets {
   static const String modelsUserModel = 'lib/features/auth/data/models/user_model.dart';
   static const String pagesAddNewBlogPage = 'lib/features/blog/presentation/pages/add_new_blog_page.dart';
   static const String pagesBlogPage = 'lib/features/blog/presentation/pages/blog_page.dart';
+  static const String pagesBlogViewerPage = 'lib/features/blog/presentation/pages/blog_viewer_page.dart';
   static const String pagesSignInPage = 'lib/features/auth/presentation/pages/sign_in_page.dart';
   static const String pagesSignUpPage = 'lib/features/auth/presentation/pages/sign_up_page.dart';
   static const String repositoriesAuthRepository = 'lib/features/auth/domain/repositories/auth_repository.dart';
@@ -40,6 +41,8 @@ class Assets {
   static const String usecaseUserSignUp = 'lib/features/auth/domain/usecase/user_sign_up.dart';
   static const String usecasesGetAllBlogs = 'lib/features/blog/domain/usecases/get_all_blogs.dart';
   static const String usecasesUploadBlog = 'lib/features/blog/domain/usecases/upload_blog.dart';
+  static const String utilsCalculateReadingTime = 'lib/core/utils/calculate_reading_time.dart';
+  static const String utilsFormatDate = 'lib/core/utils/format_date.dart';
   static const String utilsPickImage = 'lib/core/utils/pick_image.dart';
   static const String utilsShowSnackbar = 'lib/core/utils/show_snackbar.dart';
   static const String widgetsAuthField = 'lib/features/auth/presentation/widgets/auth_field.dart';

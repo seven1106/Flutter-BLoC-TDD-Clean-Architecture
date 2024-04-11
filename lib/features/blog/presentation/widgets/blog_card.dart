@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tdd_clean_architecture/features/blog/domain/entities/blog_entity.dart';
 
+import '../../../../core/utils/calculate_reading_time.dart';
+import '../pages/blog_viewer_page.dart';
+
 class BlogCard extends StatelessWidget {
   final BlogEntity blog;
   final String image_url;
@@ -14,7 +17,7 @@ class BlogCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(context, BlogViewerPage.route(blog));
+        Navigator.push(context, BlogViewerPage.route(blog));
       },
       child: Container(
         height: 200,
@@ -40,23 +43,33 @@ class BlogCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: blog.categories
-                        .map(
-                          (e) => Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Chip(
-                              label: Text(e, style: const TextStyle(fontSize: 12)),
-                            ),
-                          ),
-                        )
-                        .toList(),
-                  ),
+                Row(
+                  children: [
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: blog.categories
+                            .map(
+                              (e) => Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Chip(
+                                  label: Text(e, style: const TextStyle(fontSize: 12)),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ),
+                    const Spacer(),
+                    // save to favorites
+                    IconButton(
+                      onPressed: () {
+                        // context.read<FavoriteBloc>().add(AddFavoriteEvent(blog));
+                      }, icon: const Icon(Icons.favorite_border),
+                    ),
+                  ],
                 ),
                 SizedBox(
-                  height: 50,
                   child: Text(
                     blog.title,
                     overflow: TextOverflow.ellipsis,
@@ -69,9 +82,39 @@ class BlogCard extends StatelessWidget {
                 ),
               ],
             ),
-            // Text('${calculateReadingTime(blog.content)} min'),
             const Divider(color: Colors.white),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    // CircleAvatar(
+                    //   backgroundImage: NetworkImage(blog.image_url),
+                    // ),
+                    const SizedBox(width: 10),
+                    Text(
+                      'By ${blog.poster_name}',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
 
+                  children: [
+                    const Icon(Icons.remove_red_eye),
+                    const SizedBox(width: 5),
+                    Text(blog.views.toString()),
+                    const SizedBox(width: 10),
+                    const Icon(Icons.access_time),
+                    const SizedBox(width: 5),
+                    Text('${calculateReadingTime(blog.content)} min ago'),
+                  ],
+                ),
+              ],
+            ),
           ],
         ),
       ),
