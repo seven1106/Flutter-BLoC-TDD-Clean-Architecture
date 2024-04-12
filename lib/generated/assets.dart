@@ -12,6 +12,7 @@ class Assets {
   static const String blocBlogState = 'lib/features/blog/presentation/bloc/blog_state.dart';
   static const String coreErrorFailures = 'lib/core/error/failures.dart';
   static const String datasourcesAuthRemoteDataSource = 'lib/features/auth/data/datasources/auth_remote_data_source.dart';
+  static const String datasourcesBlogLocalDatasource = 'lib/features/blog/data/datasources/blog_local_datasource.dart';
   static const String datasourcesBlogRemoteDataSource = 'lib/features/blog/data/datasources/blog_remote_data_source.dart';
   static const String entitiesBlogEntity = 'lib/features/blog/domain/entities/blog_entity.dart';
   static const String entitiesUserEntity = 'lib/core/common/entities/user_entity.dart';
