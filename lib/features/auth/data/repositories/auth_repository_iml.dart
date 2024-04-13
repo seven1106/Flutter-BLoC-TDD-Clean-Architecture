@@ -54,8 +54,6 @@ class AuthRepositoryImpl implements AuthRepository {
       return right(user);
     } on ServerException catch (e) {
       return Left(Failure(e.message));
-    } on supabase.AuthException catch (e) {
-      return Left(Failure(e.message));
     }
   }
 

@@ -4,6 +4,7 @@ import 'package:flutter_tdd_clean_architecture/features/auth/presentation/pages/
 
 import '../../../../core/theme/app_palette.dart';
 import '../../../../core/utils/show_snackbar.dart';
+import '../../../blog/presentation/pages/blog_page.dart';
 import '../bloc/auth_bloc.dart';
 import '../widgets/auth_field.dart';
 import '../widgets/auth_gradient_btn.dart';
@@ -46,6 +47,12 @@ class _SignInPageState extends State<SignInPage> {
             listener: (context, state) {
               if (state is AuthFailure) {
                 showSnackBar(context, state.message);
+              } else if (state is AuthSuccess) {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  BlogPage.route(),
+                  (route) => false,
+                );
               }
             },
             builder: (context, state) {
@@ -95,9 +102,9 @@ class _SignInPageState extends State<SignInPage> {
                             TextSpan(
                               text: 'Sign Up',
                               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                color: AppPalette.gradient2,
-                                fontWeight: FontWeight.bold,
-                              ),
+                                    color: AppPalette.gradient2,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                             ),
                           ],
                         ),
@@ -109,7 +116,6 @@ class _SignInPageState extends State<SignInPage> {
             },
           ),
         ),
-
       ]),
     );
   }

@@ -21,6 +21,7 @@ class Assets {
   static const String errorFailures = 'lib/core/error/failures.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String libInitDependencies = 'lib/init_dependencies.dart';
+  static const String libInitDependentciesMain = 'lib/init_dependencies_main.dart';
   static const String libMain = 'lib/main.dart';
   static const String modelsBlogModel = 'lib/features/blog/data/models/blog_model.dart';
   static const String modelsUserModel = 'lib/features/auth/data/models/user_model.dart';

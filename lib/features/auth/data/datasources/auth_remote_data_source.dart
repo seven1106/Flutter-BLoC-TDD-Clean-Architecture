@@ -20,7 +20,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final SupabaseClient supabaseClient;
   AuthRemoteDataSourceImpl({required this.supabaseClient});
   @override
-  Session? get currentUserSession => supabaseClient.auth.currentSession ;
+  Session? get currentUserSession => supabaseClient.auth.currentSession;
   @override
   Future<UserModel> signUpWithEmailAndPassword({
     required String email,
@@ -31,11 +31,13 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       final response = await supabaseClient.auth
           .signUp(email: email, password: password, data: {'name': name});
       if (response.user == null) {
-        throw const ServerException('An error occurred');
+        throw const ServerException('User not found');
       }
       return UserModel.fromJson(response.user!.toJson());
+    } on AuthException catch (e) {
+      throw ServerException(e.message);
     } catch (e) {
-      throw const ServerException('An error occurred');
+      throw ServerException(e.toString());
     }
   }
 
@@ -50,16 +52,18 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         password: password,
       );
       if (response.user == null) {
-        throw const ServerException('An error occurred');
+        throw const ServerException('User not found');
       }
       return UserModel.fromJson(response.user!.toJson());
+    } on AuthException catch (e) {
+      throw ServerException(e.message);
     } catch (e) {
-      throw const ServerException('An error occurred');
+      throw ServerException(e.toString());
     }
   }
 
   @override
-  Future<UserModel?> getCurrentUser() async{
+  Future<UserModel?> getCurrentUser() async {
     try {
       final user = supabaseClient.auth.currentUser;
       if (user == null) {
@@ -70,6 +74,4 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       throw const ServerException('An error occurred');
     }
   }
-
-
 }

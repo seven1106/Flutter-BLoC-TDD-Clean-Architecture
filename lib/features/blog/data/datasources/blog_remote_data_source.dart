@@ -12,7 +12,6 @@ abstract interface class BlogRemoteDataSource {
     required BlogModel blog,
   });
   Future<List<BlogModel>> getAllBlogs();
-
 }
 
 class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
@@ -30,6 +29,8 @@ class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
           )
           .select();
       return BlogModel.fromJson(response.first);
+    } on StorageException catch (e) {
+      throw ServerException(e.message);
     } catch (e) {
       throw ServerException(e.toString());
     }
@@ -49,7 +50,7 @@ class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
       return client.storage.from('blog_image').getPublicUrl(
             blog.id,
           );
-    } on StorageException catch (e) {
+    } on PostgrestException catch (e) {
       throw ServerException(e.message);
     } catch (e) {
       throw ServerException(e.toString());
@@ -57,13 +58,17 @@ class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
   }
 
   @override
-  Future<List<BlogModel>> getAllBlogs() async{
+  Future<List<BlogModel>> getAllBlogs() async {
     try {
       final blogs = await client.from('blogs').select('*, profiles(name, avatar_url)');
-      return blogs.map((e) => BlogModel.fromJson(e).copyWith(
-        poster_name: e['profiles']['name'],
-        poster_avatar_url: e['profiles']['avatar_url'],
-      )).toList();
+      return blogs
+          .map((e) => BlogModel.fromJson(e).copyWith(
+                poster_name: e['profiles']['name'],
+                poster_avatar_url: e['profiles']['avatar_url'],
+              ))
+          .toList();
+    } on PostgrestException catch (e) {
+      throw ServerException(e.message);
     } catch (e) {
       throw ServerException(e.toString());
     }
